@@ -1,17 +1,16 @@
 import express from 'express'; 
 import { connectDB } from './config/db.js'
-import dotenv from 'dotenv'; 
-import productRoutes from './routes/product.route.js'; 
+import dotenv from 'dotenv';  
 import cors from 'cors'
 import authRoutes from "./routes/authRoutes.js"; 
 import cookieParser from 'cookie-parser'; 
-
+import reservationRoutes from './routes/reservationRoute.js'
+import restaurantRoutes from './routes/restaurantRoutes.js'
 
 dotenv.config(); 
 const app = express(); 
 app.use(express.json()); 
 
-app.use("/api/products", productRoutes)
 const PORT = process.env.PORT || 5000 
 
 app.listen(PORT, () => {
@@ -27,6 +26,9 @@ app.use(
     })
 );
 app.use(cookieParser()); 
-app.use("/", authRoutes)
+app.use("/", authRoutes); 
+app.use("/reservation", reservationRoutes)
+app.use("/admin/restaurant", restaurantRoutes); 
+app.use("/restaurant", restaurantRoutes)
 
 

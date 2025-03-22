@@ -9,9 +9,12 @@ export const checkUser = async (req,res,next) => {
                 res.json({status: false})
                 next(); 
             } else {
+                console.log("verified")
                 const user = await User.findById(decodedToken.userId); 
                 if (user.role === "owner") {
-                    res.json({status: true, user: user.email, role: "owner"})
+                    console.log("welcome")
+                    res.user = user;
+                    res.json({status: true, user: user.email, role: "owner", userId : decodedToken.userId})
                     next(); 
                 } else {res.json({status: false})}
             }

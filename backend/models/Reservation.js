@@ -1,20 +1,19 @@
 import mongoose from 'mongoose';
 
 const reservationSchema = new mongoose.Schema({
-    userId: {
+    user: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User',
         required: true
     },
-    restaurantId: {
+    restaurant: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Restaurant',
         required: true
     },
-    tableCount: {
-        type: Number,
+    time: {
+        type: String,
         required: true,
-        min: 1
     },
     date: {
         type: Date,
