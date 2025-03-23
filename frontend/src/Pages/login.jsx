@@ -23,7 +23,7 @@ export default function Login() {
         if (data.role==="owner") {
           navigate("/admin"); 
         } else {
-          navigate("/home"); 
+          navigate("/home/"); 
         }
       }
         

@@ -13,7 +13,6 @@ export const checkUser = async (req,res,next) => {
                 const user = await User.findById(decodedToken.userId); 
                 if (user.role === "owner") {
                     console.log("welcome")
-                    res.user = user;
                     res.json({status: true, user: user.email, role: "owner", userId : decodedToken.userId})
                     next(); 
                 } else {res.json({status: false})}

@@ -23,7 +23,7 @@ export const login = async(req,res,next) => {
             httpOnly: true, 
             maxAge: 60*60*24*1000
         })
-        res.json({ token, role: user.role }); 
+        res.json({ token, role: user.role}); 
     } catch(error) {
         console.log("error", error.message)
     }
