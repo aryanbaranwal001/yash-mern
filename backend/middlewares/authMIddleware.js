@@ -26,4 +26,27 @@ export const checkUser = async (req,res,next) => {
     }
 }
     
+export const checkOwner = async (req, res, next) => {
+    try {
+        const token = req.cookies.jwt;
+        if (!token) {
+            return res.status(401).json({ status: false, message: "Unauthorized: No token provided" });
+        }
+
+        jwt.verify(token, "CheckingForOwner", async (error, decodedToken) => {
+            if (error) {
+                return res.status(403).json({ status: false, message: "Invalid token" });
+            }
+
+            const user = await User.findById(decodedToken.userId);
+            if (!user || user.role !== "owner") {
+                return res.status(403).json({ status: false, message: "Access denied: Not an owner" });
+            }
+            next(); 
+        });
+    } catch (error) {
+        return res.status(500).json({ status: false, message: "Server error", error: error.message });
+    }
+};
+
     

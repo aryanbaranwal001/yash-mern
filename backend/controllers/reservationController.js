@@ -1,5 +1,6 @@
 import Reservation from '../models/Reservation.js';
-
+import { sendEmail } from '../utils/emailService.js';
+import User from '../models/User.js'
 export const createReservationRequest = async (req,res) => {
     try {
         const {userId, restaurantId, time,date} = req.body;
@@ -41,35 +42,40 @@ export const cancelReservationRequest = async (req, res) => {
     }
 };
 
-export const approveReservation = async (req,res) => {
-    try{
-        const {id} = req.params; 
-        const reservation = await Reservation.findByIdAndUpdate(id ,{status: "confirmed"}, {new: true}); 
-        res.status(200).json({ message: "Reservation approved", reservation });
-    } catch(error) {
-        res.status(404).json({message: "server Error"})
-    }
-}
+export const updateReservation = async (req, res) => {
+    try {
+        const { id } = req.params;
+        const { status } = req.body; 
+        const reservation = await Reservation.findById(id).populate("user");
+        const updatedReservation = await Reservation.findByIdAndUpdate(id, { status }, { new: true });
 
-export const DeclineReservation = async (req,res) => {
-    try{
-        const {id} = req.params; 
-        const reservation = await Reservation.findByIdAndUpdate(id ,{status: "cancelled"}, {new: true}); 
-        res.status(200).json({ message: "Reservation request declined", reservation });
-    } catch(error) {
-        res.status(404).json({message: "server Error"})
+
+        if (!updatedReservation) {
+            return res.status(404).json({ message: "Reservation not found" });
+        }
+
+        console.log(process.env.EMAIL_USER)
+        console.log(process.env.EMAIL_PASS)
+        const userEmail = reservation.user.email;
+        const subject = `Your Reservation Status: ${status}`;
+        const message = `Hello ${reservation.user.name},\n\nYour reservation at ${reservation.restaurant} has been ${status}.\n\nThank you!`;
+
+        sendEmail(userEmail, subject, message);
+
+        res.status(200).json(updatedReservation);
+    } catch (error) {
+        res.status(500).json({ message: "Error updating reservation", error: error.message });
     }
-}
+};
 
 export const getPendingReservations = async (req, res) => {
     try {
-        const pendingReservations = await Reservation.find({ status: "pending" })
-            .populate("restaurant", "name")
-            .populate("user", "email"); // Fetch restaurant name and user email
-
-        res.status(200).json(pendingReservations);
+        console.log("Received request params:", req.params);
+        const { id } = req.params;
+        const reservations = await Reservation.find({ restaurant: id});
+        res.status(200).json(reservations);
     } catch (error) {
-        console.error("Error fetching pending reservations:", error);
-        res.status(500).json({ message: "Server Error", error: error.message });
+        res.status(500).json({ message: "Error fetching reservations", error: error.message });
     }
 };
+

@@ -5,6 +5,7 @@ import Register from './Pages/register.jsx'
 import Secret from './Pages/secret.jsx'
 import AdminPage from './Pages/adminPage.jsx'
 import HomePage from './Pages/homePage.jsx'
+import AdminRestaurantPage from "./Pages/adminRestaurantPage.jsx";
 export default function app() {
   return (
     <BrowserRouter>
@@ -14,6 +15,7 @@ export default function app() {
         <Route exact path ="/" element={<Secret />} />
         <Route exact path ="/admin" element={<AdminPage />} />
         <Route exact path ="/home" element ={<HomePage />}/>
+        <Route exact path ="/admin/restaurant/:id" element ={<AdminRestaurantPage />}/>
       </Routes>
     </BrowserRouter>
   )
