@@ -1,94 +1,997 @@
-*{
+/* Global Styles */
+* {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
 }
 
 body {
-  height: 100vh;
+  min-height: 100vh;
   width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: rgb(236, 236, 238);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Hero Section */
+.hero-section {
+  width: 100%;
+  padding: 5rem 2rem;
+  text-align: center;
+  background-color: #4a6bff;
+  color: white;
+  margin-bottom: 3rem;
+}
+
+.site-name {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+  letter-spacing: 1px;
+}
+
+.shop-title {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.subheading {
+  font-size: 1.2rem;
+  margin-bottom: 2.5rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  opacity: 0.9;
+  line-height: 1.6;
+}
+
+.hero-button {
+  padding: 0.8rem 2.5rem;
+  font-size: 1.1rem;
+  border-radius: 4px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  background-color: white;
+  color: #4a6bff;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.hero-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.divider {
+  width: 80%;
+  height: 1px;
+  background-color: rgba(255, 255, 255, 0.3);
+  margin: 2rem auto;
+}
+
+/* Restaurants Section */
+.restaurants-section {
+  width: 100%;
+  max-width: 1200px;
+  padding: 2rem;
+  margin-bottom: 3rem;
+  text-align: center;
+}
+
+.section-heading {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  color: #333;
+  font-weight: 600;
+}
+
+.section-subheading {
+  font-size: 1.1rem;
+  color: #666;
+  margin-bottom: 3rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
+}
+
+/* Restaurant List Layout */
+.restaurants-list {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.restaurant-item {
+  margin-bottom: 4rem;
+  width: 100%;
+}
+
+.restaurant-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 3rem;
+}
+
+.left-aligned .restaurant-content {
+  flex-direction: row;
+}
+
+.right-aligned .restaurant-content {
+  flex-direction: row-reverse;
+}
+
+.restaurant-image {
+  width: 50%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.restaurant-image:hover {
+  transform: scale(1.02);
+}
+
+.restaurant-details {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.restaurant-name {
+  font-size: 1.8rem;
+  margin-bottom: 2rem;
+  color: #333;
+  font-weight: 600;
+  text-align: center;
+}
+
+/* Buttons */
+.button-group {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  width: 100%;
+}
+
+.primary-button {
+  background-color: #4a6bff;
+  color: white;
+  padding: 0.8rem 2rem;
+  border-radius: 4px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  min-width: 150px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.primary-button:hover {
+  background-color: #3a5bef;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.secondary-button {
+  border: 2px solid #4a6bff;
+  color: #4a6bff;
+  padding: 0.8rem 2rem;
+  border-radius: 4px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  background: transparent;
+  min-width: 150px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.secondary-button:hover {
+  background-color: rgba(74, 107, 255, 0.1);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* CTA Section */
+.cta-section {
+  width: 100%;
+  max-width: 1200px;
+  padding: 3rem 2rem;
+  margin: 0 auto 3rem;
+  text-align: center;
+  background-color: #f1f3ff;
+  border-radius: 8px;
+}
+
+/* Reservation Modal */
+.reservation-field {
+  margin-bottom: 1.5rem;
+}
+
+.submit-button {
+  width: 100%;
+  padding: 0.8rem;
+  margin-top: 1rem;
+  border-radius: 4px;
+  font-weight: 600;
+  background-color: #4a6bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.submit-button:hover {
+  background-color: #3a5bef;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .hero-section {
+    padding: 3rem 1.5rem;
+  }
+  
+  .site-name {
+    font-size: 2.2rem;
+  }
+  
+  .shop-title {
+    font-size: 1.5rem;
+  }
+  
+  .restaurant-content {
+    flex-direction: column !important;
+    gap: 1.5rem;
+  }
+  
+  .restaurant-image,
+  .restaurant-details {
+    width: 100%;
+  }
+  
+  .restaurant-image {
+    height: 200px;
+  }
+  
+  .restaurant-name {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .button-group {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .primary-button,
+  .secondary-button {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-section {
+    padding: 2rem 1rem;
+  }
+  
+  .site-name {
+    font-size: 1.8rem;
+  }
+  
+  .section-heading {
+    font-size: 1.5rem;
+  }
+}
+
+/* Login Page Styles */
+.login-page {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgb(236, 236, 238);
-  overflow: hidden;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  min-height: 100vh;
+  background-color: #f5f5f5;
 }
 
-.container {
-  background-color: white;
-  padding: 1rem 3rem;
-  padding-bottom: 2rem;
-  border-radius: 0.5rem;
-  border-top: rgb(80, 98, 255) 0.5rem solid;
+.login-container {
+  width: 100%;
+  max-width: 400px;
+  padding: 2rem;
 }
 
-h2 {
+.login-card {
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 2.5rem;
+}
+
+.login-title {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #333;
+  font-size: 1.8rem;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-label {
+  font-size: 0.9rem;
+  color: #555;
+  font-weight: 500;
+}
+
+.form-input {
+  padding: 0.8rem 1rem;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: #4a6bff;
+}
+
+.submit-button {
+  background-color: #4a6bff;
+  color: white;
+  border: none;
+  padding: 0.8rem;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 1rem;
+}
+
+.submit-button:hover {
+  background-color: #3a5bef;
+}
+
+.register-link {
+  text-align: center;
+  margin-top: 1.5rem;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.register-text {
+  color: #4a6bff;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.register-text:hover {
+  text-decoration: underline;
+}
+/* Register Page Specific Styles */
+.checkbox-group {
+  display: flex;
+  align-items: center;
   margin: 1rem 0;
 }
 
-form {
-  display: flex;
-  flex-direction: column;
-  gap: 1.4rem;
+.checkbox-input {
+  width: 18px;
+  height: 18px;
+  margin-right: 10px;
+  accent-color: #4a6bff;
 }
 
-form div {
-  display: flex;
-  flex-direction: column;
-  gap: 0.3rem;
+.checkbox-label {
+  font-size: 0.9rem;
+  color: #555;
+  cursor: pointer;
 }
 
-input {
-  padding: 0.5rem;
-  border-radius: 0.3rem;
-  border: 1px solid gray;
+.login-link {
+  text-align: center;
+  margin-top: 1.5rem;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.login-text {
+  color: #4a6bff;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.login-text:hover {
+  text-decoration: underline;
+}
+
+/* Enhancements for the form */
+.form-input {
+  margin-bottom: 0.5rem;
+}
+
+.submit-button {
+  margin-top: 1.5rem;
+}
+/* Responsive Design */
+@media (max-width: 480px) {
+  .login-card {
+    padding: 1.5rem;
+  }
+  
+  .login-title {
+    font-size: 1.5rem;
+  }
+  
+  .form-input {
+    padding: 0.7rem 0.9rem;
+  }
+}
+
+/* Admin Restaurant Page Styles */
+.admin-restaurant-container {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.header-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.page-title {
+  color: #333;
+  font-size: 2rem;
+  margin: 0;
+}
+
+.menu-button {
+  background-color: #4a6bff;
+  color: white;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.menu-button:hover {
+  background-color: #3a5bef;
+}
+
+.reservations-section {
+  background: white;
+  border-radius: 8px;
+  padding: 2rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.section-title {
+  color: #444;
+  font-size: 1.5rem;
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+}
+
+.no-reservations {
+  color: #666;
+  text-align: center;
+  padding: 2rem;
+}
+
+.table-container {
+  overflow-x: auto;
+}
+
+.reservations-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.reservations-table th {
+  background-color: #f5f7fa;
+  color: #555;
+  font-weight: 600;
+  text-align: left;
+  padding: 1rem;
+  border-bottom: 2px solid #e1e5eb;
+}
+
+.reservations-table td {
+  padding: 1rem;
+  border-bottom: 1px solid #e1e5eb;
+  color: #555;
+}
+
+.reservations-table tr:hover {
+  background-color: #f9fafc;
+}
+
+.status-badge {
+  display: inline-block;
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.status-badge.pending {
+  background-color: #fff3cd;
+  color: #856404;
+}
+
+.status-badge.approved {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.status-badge.cancelled {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.approve-button {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.approve-button:hover {
+  background-color: #218838;
+}
+
+.cancel-button {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.cancel-button:hover {
+  background-color: #c82333;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .header-section {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1rem;
+  }
+  
+  .reservations-table {
+      font-size: 0.9rem;
+  }
+  
+  .reservations-table th,
+  .reservations-table td {
+      padding: 0.75rem 0.5rem;
+  }
+  
+  .action-buttons {
+      flex-direction: column;
+      gap: 0.3rem;
+  }
+  
+  .approve-button,
+  .cancel-button {
+      padding: 0.4rem 0.8rem;
+  }
+}
+
+/* Admin Menu Page Styles */
+.admin-menu-container {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 2rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.menu-form {
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem;
+}
+
+.form-title {
+  color: #333;
+  font-size: 1.5rem;
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #555;
+  font-weight: 500;
+}
+
+.form-input {
+  width: 100%;
+  padding: 0.8rem;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: #4a6bff;
+}
+
+.submit-button {
+  width: 100%;
+  background-color: #4a6bff;
+  color: white;
+  border: none;
+  padding: 0.8rem;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.submit-button:hover {
+  background-color: #3a5bef;
+}
+
+.current-menu {
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.menu-title {
+  color: #333;
+  font-size: 1.3rem;
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+}
+
+.empty-menu {
+  color: #666;
+  text-align: center;
+  padding: 1rem;
+}
+
+.menu-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.menu-table th {
+  background-color: #f5f7fa;
+  color: #555;
+  font-weight: 600;
+  text-align: left;
+  padding: 1rem;
+  border-bottom: 2px solid #e1e5eb;
+}
+
+.menu-table td {
+  padding: 1rem;
+  border-bottom: 1px solid #e1e5eb;
+  color: #555;
+}
+
+.menu-table tr:last-child td {
+  border-bottom: none;
+}
+
+.menu-table tr:hover {
+  background-color: #f9fafc;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .admin-menu-container {
+      padding: 1rem;
+  }
+  
+  .menu-form,
+  .current-menu {
+      padding: 1.5rem;
+  }
+  
+  .menu-table th,
+  .menu-table td {
+      padding: 0.75rem 0.5rem;
+  }
+}
+
+/* Menu Page Styles */
+.menu-page-container {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 2rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.menu-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.menu-title {
+  color: #333;
+  font-size: 2rem;
+  margin: 0;
+}
+
+.back-button {
+  background: none;
+  border: none;
+  color: #4a6bff;
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  transition: background-color 0.3s ease;
+}
+
+.back-button:hover {
+  background-color: #f0f2ff;
+}
+
+.empty-menu {
+  text-align: center;
+  color: #666;
+  padding: 2rem;
   font-size: 1.1rem;
 }
 
-button {
-  background-color: rgb(80, 98, 255);
+.menu-items-container {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+}
+
+.menu-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menu-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 0;
+  border-bottom: 1px solid #eee;
+}
+
+.menu-item:last-child {
+  border-bottom: none;
+}
+
+.item-name {
+  font-weight: 500;
+  color: #333;
+  font-size: 1.1rem;
+}
+
+.item-price {
+  color: #4a6bff;
+  font-weight: 600;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .menu-page-container {
+      padding: 1.5rem;
+  }
+  
+  .menu-header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1rem;
+  }
+  
+  .menu-title {
+      font-size: 1.8rem;
+  }
+  
+  .menu-items-container {
+      padding: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .menu-page-container {
+      padding: 1rem;
+  }
+  
+  .menu-item {
+      flex-direction: column;
+      gap: 0.5rem;
+  }
+  
+  .item-price {
+      align-self: flex-end;
+  }
+}
+
+/* Admin Page Styles */
+.admin-page-container {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 2rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.admin-header {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.welcome-message {
+  color: #333;
+  font-size: 2rem;
+  margin-bottom: 0;
+}
+
+.restaurant-form {
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-title {
+  color: #333;
+  font-size: 1.5rem;
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #555;
+  font-weight: 500;
+}
+
+.form-input {
+  width: 100%;
+  padding: 0.8rem;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: #4a6bff;
+}
+
+.file-input-container {
+  position: relative;
+}
+
+.file-input {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+
+.file-input-label {
+  display: block;
+  width: 100%;
+  padding: 0.8rem;
+  border: 1px dashed #ddd;
+  border-radius: 6px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.file-input-label:hover {
+  border-color: #4a6bff;
+  background-color: #f8f9ff;
+}
+
+.submit-button {
+  width: 100%;
+  background-color: #4a6bff;
   color: white;
   border: none;
-  padding: 0.5rem;
+  padding: 0.8rem;
+  border-radius: 6px;
   font-size: 1rem;
-  text-transform: uppercase;
+  font-weight: 600;
   cursor: pointer;
-  border-radius: 0.3rem;
+  transition: background-color 0.3s ease;
+  margin-top: 1rem;
 }
 
-span a {
-  text-decoration: none;
-  color: rgb(80, 98, 255);
+.submit-button:hover {
+  background-color: #3a5bef;
 }
 
-.private {
-  height: 100vh;
-  width: 100vw;
-  background-color: rgb(80, 98, 255);
-  color: white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-transform: uppercase;
-  font-size: 3rem;
-  flex-direction: column;
-  gap: 1rem;
+/* Responsive Design */
+@media (max-width: 768px) {
+  .admin-page-container {
+    padding: 1.5rem;
+  }
+  
+  .restaurant-form {
+    padding: 1.5rem;
+  }
+  
+  .welcome-message {
+    font-size: 1.8rem;
+  }
 }
 
-.private button {
-  background-color: black;
-  padding: 2rem 10rem;
-  font-size: 4rem;
-  border-radius: 2rem;
+@media (max-width: 480px) {
+  .admin-page-container {
+    padding: 1rem;
+  }
+  
+  .restaurant-form {
+    padding: 1rem;
+  }
 }
-
-.checkbox-container {
-  display: flex;
-  align-items: center;
-}
-
-.checkbox-container input {
-  margin-right: 0.5rem; /* Add space between checkbox and text */
-}
-

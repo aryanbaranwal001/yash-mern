@@ -2,8 +2,10 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import {jwtDecode} from 'jwt-decode'
 import { Button, Card, CardContent, Dialog, DialogContent, DialogTitle, TextField } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 
 const RestaurantList = () => {
+  const navigate = useNavigate();
   const [restaurants, setRestaurants] = useState([]);
   const [open, setOpen] = useState(false);
   const [selectedRestaurant, setSelectedRestaurant] = useState(null);
@@ -71,10 +73,21 @@ const RestaurantList = () => {
         {restaurants.map((restaurant) => (
           <Card key={restaurant._id} className="p-4">
             <CardContent>
+              <img
+                src={`http://localhost:5000/${restaurant.photo}`}
+                alt={restaurant.name}
+                className="w-full h-40 object-cover rounded-md mb-3"
+              />
               <h3 className="text-lg font-semibold">{restaurant.name}</h3>
-              <p>{restaurant.address}</p>
               <Button variant="contained" color="primary" onClick={() => handleOpen(restaurant)}>
                 Reserve
+              </Button>
+              <Button
+                variant="outlined"
+                color="secondary"
+                onClick={() => navigate(`/restaurant/${restaurant._id}/menu`)}
+              >
+                See Menu
               </Button>
             </CardContent>
           </Card>

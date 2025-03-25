@@ -35,26 +35,28 @@ export default function Login() {
 
 
   return (
-    <div className='container'>
-      <h2>Login Account </h2>
-      <form onSubmit={(e)=>handleSUbmit(e)}>
-        <div>
-          <label htmlFor='email'>Email</label>
-          <input type="email" name="email" placeholder="Email" onChange={(e)=>
-            setValues({...values, [e.target.name]: e.target.value})}/>
-        </div>
-        <div>
-          <label htmlFor='password'>Password</label>
-          <input type="password" name="password" placeholder="Password" onChange={(e)=>
-            setValues({...values, [e.target.name]: e.target.value})}/>
-        </div>
-        <button type="submit">Submit</button>
+    <div className="login-container">
+      <div className='container'>
+        <h2>Login Account </h2>
+        <form onSubmit={(e)=>handleSUbmit(e)}>
+          <div>
+            <label htmlFor='email'>Email</label>
+            <input type="email" name="email" placeholder="Email" onChange={(e)=>
+              setValues({...values, [e.target.name]: e.target.value})}/>
+          </div>
+          <div>
+            <label htmlFor='password'>Password</label>
+            <input type="password" name="password" placeholder="Password" onChange={(e)=>
+              setValues({...values, [e.target.name]: e.target.value})}/>
+          </div>
+          <button type="submit">Submit</button>
 
-        <span>
-          create new account <Link to="/register">Register</Link>
-        </span>
-      </form>
-      <ToastContainer /> 
+          <span>
+            create new account <Link to="/register">Register</Link>
+          </span>
+        </form>
+        <ToastContainer /> 
+      </div>
     </div>
   )
 }

@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const AdminRestaurantPage = () => {
     const { id } = useParams();  // Get restaurantId from URL
-    console.log("Extracted restaurantId from URL:", id);
+    const navigate = useNavigate(); 
     const [reservations, setReservations] = useState([]);
 
     // Fetch reservations for this restaurant
@@ -36,6 +37,12 @@ const AdminRestaurantPage = () => {
 
     return (
         <div>
+            <button 
+                onClick={() => navigate(`/admin/restaurant/${id}/menu`)} 
+                style={{ marginBottom: "20px", padding: "10px", background: "blue", color: "white", borderRadius: "5px", cursor: "pointer" }}
+            >
+                Manage Menu
+            </button>
             <h2>Reservations for Your Restaurant</h2>
             {reservations.length === 0 ? (
                 <p>No reservation requests yet.</p>
@@ -62,6 +69,7 @@ const AdminRestaurantPage = () => {
                                         <>
                                             <button onClick={() => handleUpdateStatus(reservation._id, "approved")}>Approve</button>
                                             <button onClick={() => handleUpdateStatus(reservation._id, "cancelled")}>Cancel</button>
+
                                         </>
                                     )}
                                 </td>

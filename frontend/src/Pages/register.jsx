@@ -29,6 +29,7 @@ export default function Register() {
 
 
   return (
+    <div className='login-container'>
     <div className='container'>
       <h2>Register Account </h2>
       <form onSubmit={(e)=>handleSUbmit(e)}>
@@ -65,6 +66,7 @@ export default function Register() {
         </span>
       </form>
       <ToastContainer /> 
+    </div>
     </div>
   )
 }
