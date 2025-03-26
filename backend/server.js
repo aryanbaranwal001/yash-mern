@@ -20,11 +20,14 @@ app.listen(PORT, () => {
     connectDB(); 
     console.log("server started at http://localhost:" + PORT);
 })
+const allowedOrigins = [
+    "https://restaurant-app-zry4.vercel.app",
+    "http://localhost:3000"
+]
 
 app.use(
     cors({
-        origin: 'http://localhost:3000',
-        method: ["GET","POST"],
+        origin: allowedOrigins,
         credentials: true,
     })
 );
