@@ -27,10 +27,16 @@ const allowedOrigins = [
 
 app.use(
     cors({
-        origin: allowedOrigins,
-        credentials: true,
+      origin: (origin, callback) => {
+        if (!origin || allowedOrigins.includes(origin)) {
+          callback(null, true);
+        } else {
+          callback(new Error("Not allowed by CORS"));
+        }
+      },
+      credentials: true,
     })
-);
+  );
 app.use("/uploads", express.static(path.join(process.cwd(), "uploads")));
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 app.use(cookieParser()); 
