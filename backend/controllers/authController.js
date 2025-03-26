@@ -21,7 +21,9 @@ export const login = async(req,res,next) => {
         
         res.cookie("jwt", token, {
             httpOnly: true, 
-            maxAge: 60*60*24*1000
+            maxAge: 60*60*24*1000,
+            sameSite: "none",
+            secure: true
         })
         res.json({ token, role: user.role}); 
     } catch(error) {
