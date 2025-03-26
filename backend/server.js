@@ -20,8 +20,11 @@ app.listen(PORT, () => {
     connectDB(); 
     console.log("server started at http://localhost:" + PORT);
 })
+
+const FRONTEND_URL = process.env.FRONTEND_URL || "http://localhost:3000";
+
 const allowedOrigins = [
-    "https://restaurant-app-zry4.vercel.app",
+  FRONTEND_URL,
     "http://localhost:3000"
 ]
 
