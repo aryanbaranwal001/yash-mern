@@ -27,14 +27,8 @@ const allowedOrigins = [
 
 app.use(
     cors({
-      origin: (origin, callback) => {
-        if (!origin || allowedOrigins.includes(origin)) {
-          callback(null, true);
-        } else {
-          callback(new Error("Not allowed by CORS"));
-        }
-      },
-      credentials: true,
+      origin: "https://restaurant-app-zry4.vercel.app",
+      credentials: true
     })
   );
 app.use("/uploads", express.static(path.join(process.cwd(), "uploads")));
