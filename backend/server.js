@@ -27,7 +27,7 @@ const allowedOrigins = [
 
 app.use(
     cors({
-      origin: "https://restaurant-app-zry4.vercel.app",
+      origin: allowedOrigins,
       credentials: true
     })
   );
